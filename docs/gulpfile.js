@@ -110,84 +110,84 @@ gulp.task('styles', function() {
 
 //lossy image compression, multi src/dist folder
 
-gulp.task('imagemin', function() {
-    var mainPics = gulp.src(['../src/img/*.{gif,png,jpg}'])
-        .pipe(imagemin([
-            //png
-            imageminPngquant({
-                speed: 1,
-                quality: 98 //lossy settings
-            }),
-            imageminZopfli({
-                more: true
-            }),
-            //gif
-            // imagemin.gifsicle({
-            //     interlaced: true,
-            //     optimizationLevel: 3
-            // }),
-            //gif very light lossy, use only one of gifsicle or Giflossy
-            imageminGiflossy({
-                optimizationLevel: 3,
-                optimize: 3, //keep-empty: Preserve empty transparent frames
-                lossy: 2
-            }),
-            //svg
-            imagemin.svgo({
-                plugins: [{
-                    removeViewBox: false
-                }]
-            }),
-            //jpg lossless
-            imagemin.jpegtran({
-                progressive: true
-            }),
-            //jpg very light lossy, use vs jpegtran
-            imageminMozjpeg({
-                quality: 40
-            })
-        ]))
-        .pipe(gulp.dest('./img/'));
-
-    var pizzaPics = gulp.src(['../src/views/images/*.{gif,png,jpg}'])
-        .pipe(imagemin([
-            //png
-            imageminPngquant({
-                speed: 1,
-                quality: 98 //lossy settings
-            }),
-            imageminZopfli({
-                more: true
-            }),
-            //gif
-            // imagemin.gifsicle({
-            //     interlaced: true,
-            //     optimizationLevel: 3
-            // }),
-            //gif very light lossy, use only one of gifsicle or Giflossy
-            imageminGiflossy({
-                optimizationLevel: 3,
-                optimize: 3, //keep-empty: Preserve empty transparent frames
-                lossy: 2
-            }),
-            //svg
-            imagemin.svgo({
-                plugins: [{
-                    removeViewBox: false
-                }]
-            }),
-            //jpg lossless
-            imagemin.jpegtran({
-                progressive: true
-            }),
-            //jpg very light lossy, use vs jpegtran
-            imageminMozjpeg({
-                quality: 15
-            })
-        ]))
-        .pipe(gulp.dest('./views/images/'));
-
-    return merge(mainPics, pizzaPics);
-});
+// gulp.task('imagemin', function() {
+//     var mainPics = gulp.src(['../src/img/*.{gif,png,jpg}'])
+//         .pipe(imagemin([
+//             //png
+//             imageminPngquant({
+//                 speed: 1,
+//                 quality: 98 //lossy settings
+//             }),
+//             imageminZopfli({
+//                 more: true
+//             }),
+//             //gif
+//             // imagemin.gifsicle({
+//             //     interlaced: true,
+//             //     optimizationLevel: 3
+//             // }),
+//             //gif very light lossy, use only one of gifsicle or Giflossy
+//             imageminGiflossy({
+//                 optimizationLevel: 3,
+//                 optimize: 3, //keep-empty: Preserve empty transparent frames
+//                 lossy: 2
+//             }),
+//             //svg
+//             imagemin.svgo({
+//                 plugins: [{
+//                     removeViewBox: false
+//                 }]
+//             }),
+//             //jpg lossless
+//             imagemin.jpegtran({
+//                 progressive: true
+//             }),
+//             //jpg very light lossy, use vs jpegtran
+//             imageminMozjpeg({
+//                 quality: 40
+//             })
+//         ]))
+//         .pipe(gulp.dest('./img/'));
+//
+//     var pizzaPics = gulp.src(['../src/views/images/*.{gif,png,jpg}'])
+//         .pipe(imagemin([
+//             //png
+//             imageminPngquant({
+//                 speed: 1,
+//                 quality: 98 //lossy settings
+//             }),
+//             imageminZopfli({
+//                 more: true
+//             }),
+//             //gif
+//             // imagemin.gifsicle({
+//             //     interlaced: true,
+//             //     optimizationLevel: 3
+//             // }),
+//             //gif very light lossy, use only one of gifsicle or Giflossy
+//             imageminGiflossy({
+//                 optimizationLevel: 3,
+//                 optimize: 3, //keep-empty: Preserve empty transparent frames
+//                 lossy: 2
+//             }),
+//             //svg
+//             imagemin.svgo({
+//                 plugins: [{
+//                     removeViewBox: false
+//                 }]
+//             }),
+//             //jpg lossless
+//             imagemin.jpegtran({
+//                 progressive: true
+//             }),
+//             //jpg very light lossy, use vs jpegtran
+//             imageminMozjpeg({
+//                 quality: 15
+//             })
+//         ]))
+//         .pipe(gulp.dest('./views/images/'));
+//
+//     return merge(mainPics, pizzaPics);
+// });
 
 

@@ -19,14 +19,25 @@
   practice not render blocking. Adding syntax "media="print"" omits the render blocking.
 
 
-  #### Install GULP
+  #### GULP
 
   * Install node.js
   * In project docs folder, type "npm init". This will create a package.json file
   * Install gulp (globally): npm install --global gulp-cli
   
-    #### Gulp dependencies
+    ##### JS minification
   
     * Install js-uglify (npm install --save-dev gulp-uglify) (JS minification)
-    * Install pump (npm install pump --save-dev) (error detection tool for gulp)
-    * 
+    * Setup gulpfile.js (https://www.npmjs.com/package/gulp-uglify)
+    * Run gulp
+    
+    ##### CSS minification
+    * Install css-lean (npm install gulp-clean-css --save-dev)
+    * Setup gulpfile.js (https://www.npmjs.com/package/gulp-clean-css)
+    * Run gulp
+    
+    ##### Image Compression
+     
+    * Go to https://developers.google.com/speed/pagespeed/insights/
+    * Run web page
+    * Click on "download optimized resources" and put optimized images in respective dist folders
