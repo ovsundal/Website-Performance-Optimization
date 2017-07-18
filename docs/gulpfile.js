@@ -182,7 +182,7 @@ gulp.task('imagemin', function() {
             }),
             //jpg very light lossy, use vs jpegtran
             imageminMozjpeg({
-                quality: 40
+                quality: 15
             })
         ]))
         .pipe(gulp.dest('./views/images/'));
