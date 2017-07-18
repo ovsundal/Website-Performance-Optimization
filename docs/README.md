@@ -23,7 +23,8 @@
 
   * Install node.js
   * In project docs folder, type "npm init". This will create a package.json file
-  * Install gulp (globally): npm install --global gulp-cli
+  * Install gulp (globally): npm install --save gulp-install
+  * Install gulp (locally, in working dir): npm install --global gulp-cli
   
     ##### JS minification
   
