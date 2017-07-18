@@ -17,3 +17,16 @@
 
   How does this help? CSS is by default render blocking. This css file only affects print layout, and is therefore in
   practice not render blocking. Adding syntax "media="print"" omits the render blocking.
+
+
+  #### Install GULP
+
+  * Install node.js
+  * In project docs folder, type "npm init". This will create a package.json file
+  * Install gulp (globally): npm install --global gulp-cli
+  
+    #### Gulp dependencies
+  
+    * Install js-uglify (npm install --save-dev gulp-uglify) (JS minification)
+    * Install pump (npm install pump --save-dev) (error detection tool for gulp)
+    * 
