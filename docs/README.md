@@ -2,17 +2,17 @@
 
 What is this project about? 
 
-A poorly optimized webpage was given to me. The goal of this project is to optimize two pages, index.html and pizza.html and achieve a high score in Google pagespeed (https://developers.google.com/speed/pagespeed/insights/). Only optimization was done - content was left alone. 
+A poorly optimized webpage was forked. The goal of this project is to optimize two pages, index.html and pizza.html and achieve a high score in Google pagespeed (https://developers.google.com/speed/pagespeed/insights/). Only optimization was done - content was not changed.
 
-SCORE BEFORE OPTIMIZATION:
-index.html: 27 (mobile), 29 (desktop)
-pizza.html: 36 (mobile), 30 (desktop)
+SCORE BEFORE OPTIMIZATION:  
+index.html: 27 (mobile), 29 (desktop)  
+pizza.html: 36 (mobile), 30 (desktop)  
 
-SCORE AFTER OPTIMIZATION:
-index.html: 92 (mobile), 94 (desktop)
-pizza.html: FILL ME          
+SCORE AFTER OPTIMIZATION:  
+index.html: 92 (mobile), 94 (desktop)  
+pizza.html: FILL ME           
           
-What follows are instructions on how the optimization was done.
+What follows are instructions on how the optimization was done. This project was part of the Udacity Front-End Nanodegree program. 
 
 ## Optimization done on index.html
 
@@ -34,13 +34,12 @@ What follows are instructions on how the optimization was done.
   
 * Minify and inline critical CSS in HTML header and move link reference to style.css to bottom of HTML page. 
 
-  How does this help? **Critical** CSS is needed for the browser to render the page. Before it is processed the page will remain blank,   so by supplying the necessary resources in the initial index.html download, the browser does not to request css before first page       load.
-  
-  The 
+  How does this help? Critical CSS is needed for the browser to render the page. Before it is processed the page will remain blank,   so   by supplying the necessary resources in the initial index.html download, the browser does not to request css before first page           load.
+
   Using a critical CSS generator (https://jonassebastianohlsson.com/criticalpathcssgenerator/),  critical CSS was inlined in a <style>     block in header. The link reference to style.css was moved to the bottom of the page
 
 
-  #### GULP
+  #### GULP (used for minification)
 
   * Install node.js
   * In project docs folder, type "npm init". This will create a package.json file
@@ -48,7 +47,7 @@ What follows are instructions on how the optimization was done.
   * Install gulp (locally, in working dir): npm install --global gulp-cli
   
     ##### JS minification
-  
+    
     * Install js-uglify (npm install --save-dev gulp-uglify) (JS minification)
     * Setup gulpfile.js (https://www.npmjs.com/package/gulp-uglify)
     * Run gulp
@@ -57,9 +56,4 @@ What follows are instructions on how the optimization was done.
     * Install css-lean (npm install gulp-clean-css --save-dev)
     * Setup gulpfile.js (https://www.npmjs.com/package/gulp-clean-css)
     * Run gulp
-    
-    ##### Image Compression
-     
-    * Go to https://developers.google.com/speed/pagespeed/insights/
-    * Run web page
-    * Click on "download optimized resources" and put optimized images in respective dist folders
+
