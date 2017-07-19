@@ -1,5 +1,17 @@
 # Website Performance Optimization portfolio project
 
+What is this about? A poorly optimized webpage was given to me. The goal of this project is to optimize two pages, index.html and pizza.html and achieve a high score in Google pagespeed (https://developers.google.com/speed/pagespeed/insights/). Only optimization was done - content was left alone. 
+
+SCORE BEFORE OPTIMIZATION:
+index.html: 27 (mobile), 29 (desktop)
+pizza.html: 36 (mobile), 30 (desktop)
+
+SCORE AFTER OPTIMIZATION:
+index.html: 92 (mobile), 94 (desktop)
+pizza.html: FILL ME          
+          
+What follows are instructions on how the optimization was done.
+
 ## Optimization done on index.html
 
 #### Javascript
@@ -13,10 +25,17 @@
   
 #### CSS
 
-* Append "media="print"" to style.css download header.
+* Append "media="print"" to print.css download header.
 
   How does this help? CSS is by default render blocking. This css file only affects print layout, and is therefore in
   practice not render blocking. Adding syntax "media="print"" omits the render blocking.
+  
+* Minify and inline critical CSS in HTML header and move link reference to style.css to bottom of HTML page. 
+
+  How does this help? **Critical** CSS is needed for the browser to render the page. Before it is processed the page will remain blank,   so by supplying the necessary resources in the initial index.html download, the browser does not to request css before first page       load.
+  
+  The 
+  Using a critical CSS generator (https://jonassebastianohlsson.com/criticalpathcssgenerator/),  critical CSS was inlined in a <style>     block in header. The link reference to style.css was moved to the bottom of the page
 
 
   #### GULP
