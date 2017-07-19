@@ -34,9 +34,9 @@ gulp.task('scripts', function() {
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())
         .pipe(gulp.dest('./js/'))
-        .pipe(concat('scripts.js'))
-        .pipe(rename({ suffix: '.concat' }))
-        .pipe(gulp.dest('./js/'))
+        // .pipe(concat('scripts.js'))
+        // .pipe(rename({ suffix: '.concat' }))
+        // .pipe(gulp.dest('./js/'))
     // .pipe(notify({ message: 'Scripts task complete' }));
 
     var pizzaJsScripts = gulp.src('../src/views/js/*.js')
