@@ -38,6 +38,13 @@ What follows are instructions on how the optimization was done. This project was
 
   Using a critical CSS generator (https://jonassebastianohlsson.com/criticalpathcssgenerator/),  critical CSS was inlined in a <style>     block in header. The link reference to style.css was moved to the bottom of the page
 
+#### Inlining images
+* Thumbnail images inlined as Base64 strings.
+
+How does this help? Inlining images into index.html reduces file requests. A drawback is that the images can no longer be cached. 
+
+A quick note on size of index.html. This should, if possible, be no more than 14.3 kb. Below this threshold, the time needed to download the file is 1 RTT (round-time-trip). This is due to congestion window of (~1430 byte). TCP sends up to 10 segments before waiting for ACK, so in total 14300 byte = 14.3 kb. In short, this means that an index.html of < 14.3kb only requires 1 RTT. 
+(Index.html was 5 kb at start. This gives ~9 kb to use for CSS and image inlining) before 2 RTTs are needed.
 
   #### GULP (used for minification)
 
