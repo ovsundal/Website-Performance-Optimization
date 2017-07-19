@@ -39,13 +39,15 @@ What follows are instructions on how the optimization was done. This project was
   Using a critical CSS generator (https://jonassebastianohlsson.com/criticalpathcssgenerator/),  critical CSS was inlined in a <style>     block in header. The link reference to style.css was moved to the bottom of the page
 
 #### Inlining images
-* Thumbnail images inlined as Base64 strings.
+* 3 thumbnail images inlined as Base64 strings.
 
 How does this help? Inlining images into index.html reduces file requests. A drawback is that the images can no longer be cached. 
 
-A quick note on size of index.html. This should, if possible, be no more than 14.3 kb. Below this threshold, the time needed to download the file is 1 RTT (round-time-trip). This is due to the congestion window of TCP/IP protocol. A segment (part of file sent) is ~1430 byte. TCP sends up to 10 segments before waiting for ACK, so in total 14300 byte = 14.3 kb. In short, this means that an index.html of < 14.3kb only requires 1 RTT (assuming no segments are lost enroute). A size higher than this (or a segment loss) will require 2 RTTs.
+A quick note on size of index.html. This should, if possible, be no more than 14.3 kb. Below this threshold, the time needed to download the file is 1 RTT (round-time-trip). This is due to the congestion window of TCP/IP protocol. A segment (part of file sent) is ~1430 byte. TCP sends up to 10 segments before waiting for ACK, so in total 14320 byte = 14.3 kb. In short, this means that an index.html of < 14.3kb only requires 1 RTT (assuming no segments are lost enroute). A size higher than this (or a segment loss) will require 2 RTTs.
 
 (Index.html was 5 kb at start. This gives ~9 kb to use for CSS and image inlining before 2 RTTs are needed)
+
+After inlining 3 thumb images, size of index.html is now 14317 bytes.
 
   #### GULP (used for minification)
 
@@ -64,4 +66,16 @@ A quick note on size of index.html. This should, if possible, be no more than 14
     * Install css-lean (npm install gulp-clean-css --save-dev)
     * Setup gulpfile.js (https://www.npmjs.com/package/gulp-clean-css)
     * Run gulp
+
+
+
+
+
+Web-resources used summary:
+
+Google pagespeed: https://developers.google.com/speed/pagespeed/
+Base-64 encoding of images: https://www.base64-image.de/
+Critical CSS extractor: https://jonassebastianohlsson.com/criticalpathcssgenerator/
+
+
 
