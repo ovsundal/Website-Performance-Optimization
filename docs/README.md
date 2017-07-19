@@ -1,6 +1,8 @@
 # Website Performance Optimization portfolio project
 
-What is this about? A poorly optimized webpage was given to me. The goal of this project is to optimize two pages, index.html and pizza.html and achieve a high score in Google pagespeed (https://developers.google.com/speed/pagespeed/insights/). Only optimization was done - content was left alone. 
+What is this project about? 
+
+A poorly optimized webpage was given to me. The goal of this project is to optimize two pages, index.html and pizza.html and achieve a high score in Google pagespeed (https://developers.google.com/speed/pagespeed/insights/). Only optimization was done - content was left alone. 
 
 SCORE BEFORE OPTIMIZATION:
 index.html: 27 (mobile), 29 (desktop)
