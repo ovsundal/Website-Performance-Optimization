@@ -22,21 +22,21 @@ What follows are instructions on how the optimization was done. This project was
 
 * Change Google analytics script to async download 
 
-  How does this help? Scripts downloaded asynchronously allows the parser to continue.
-  Can only be used on scripts that does not impact the render tree.
+How does this help? Scripts downloaded asynchronously allows the parser to continue.
+Can only be used on scripts that does not impact the render tree.
   
 #### CSS
 
 * Append "media="print"" to print.css download header.
 
-  How does this help? CSS is by default render blocking. This css file only affects print layout, and is therefore in
-  practice not render blocking. Adding syntax "media="print"" omits the render blocking.
+How does this help? CSS is by default render blocking. This css file only affects print layout, and is therefore in
+practice not render blocking. Adding syntax "media="print"" omits the render blocking.
   
 * Minify and inline critical CSS in HTML header and move link reference to style.css to bottom of HTML page. 
 
-  How does this help? Critical CSS is needed for the browser to render the page. Before it is processed the page will remain blank,   so   by supplying the necessary resources in the initial index.html download, the browser does not to request css before first page           load.
+How does this help? Critical CSS is needed for the browser to render the page. Before it is processed the page will remain blank,   so   by supplying the necessary resources in the initial index.html download, the browser does not to request css before first page           load.
 
-  Using a critical CSS generator (https://jonassebastianohlsson.com/criticalpathcssgenerator/),  critical CSS was inlined in a <style>     block in header. The link reference to style.css was moved to the bottom of the page
+Using a critical CSS generator (https://jonassebastianohlsson.com/criticalpathcssgenerator/),  critical CSS was inlined in a <style>     block in header. The link reference to style.css was moved to the bottom of the page
 
 #### Inlining images
 * 3 thumbnail images inlined as Base64 strings.
@@ -51,21 +51,21 @@ After inlining 3 thumb images, size of index.html is now 14317 bytes.
 
   #### GULP (used for minification)
 
-  * Install node.js
-  * In project docs folder, type "npm init". This will create a package.json file
-  * Install gulp (globally): npm install --save gulp-install
-  * Install gulp (locally, in working dir): npm install --global gulp-cli
+* Install node.js
+* In project docs folder, type "npm init". This will create a package.json file
+* Install gulp (globally): npm install --save gulp-install
+* Install gulp (locally, in working dir): npm install --global gulp-cli
   
-    ##### JS minification
-    
-    * Install js-uglify (npm install --save-dev gulp-uglify) (JS minification)
-    * Setup gulpfile.js (https://www.npmjs.com/package/gulp-uglify)
-    * Run gulp
-    
-    ##### CSS minification
-    * Install css-lean (npm install gulp-clean-css --save-dev)
-    * Setup gulpfile.js (https://www.npmjs.com/package/gulp-clean-css)
-    * Run gulp
+          ##### JS minification
+
+          * Install js-uglify (npm install --save-dev gulp-uglify) (JS minification)
+          * Setup gulpfile.js (https://www.npmjs.com/package/gulp-uglify)
+          * Run gulp
+
+          ##### CSS minification
+          * Install css-lean (npm install gulp-clean-css --save-dev)
+          * Setup gulpfile.js (https://www.npmjs.com/package/gulp-clean-css)
+          * Run gulp
 
 
 
@@ -73,9 +73,9 @@ After inlining 3 thumb images, size of index.html is now 14317 bytes.
 
 Web-resources used summary:
 
-Google pagespeed: https://developers.google.com/speed/pagespeed/
-Base-64 encoding of images: https://www.base64-image.de/
-Critical CSS extractor: https://jonassebastianohlsson.com/criticalpathcssgenerator/
+Google pagespeed: https://developers.google.com/speed/pagespeed/  
+Base-64 encoding of images: https://www.base64-image.de/  
+Critical CSS extractor: https://jonassebastianohlsson.com/criticalpathcssgenerator/  
 
 
 
