@@ -2,7 +2,9 @@
 
 What is this project about? 
 
-A poorly optimized webpage was forked. The goal of this project is to optimize two pages, index.html and pizza.html and achieve a high score in Google pagespeed (https://developers.google.com/speed/pagespeed/insights/). Only optimization was done - content was not changed.
+A poorly optimized webpage was forked. The goal of this project is to optimize two pages, index.html and pizza.html and achieve a high score in Google pagespeed (https://developers.google.com/speed/pagespeed/insights/). In addition, pizza.html needs some code optimization to run animations at 60 fps. Only optimization was done in this project - content was not changed.
+
+More info about the project can be found here https://classroom.udacity.com/nanodegrees/nd001/parts/e87c34bf-a9c0-415f-b007-c2c2d7eead73/modules/273584856175461/lessons/b6026387-b47c-464f-954f-2f807979a066/concepts/26045387480923. For more detailed project requirements, see https://review.udacity.com/#!/rubrics/16/view
 
 SCORE BEFORE OPTIMIZATION:  
 index.html: 27 (mobile), 29 (desktop)  
@@ -55,20 +57,35 @@ After inlining 3 thumb images, size of index.html is now 14317 bytes.
 * In project docs folder, type "npm init". This will create a package.json file
 * Install gulp (globally): npm install --save gulp-install
 * Install gulp (locally, in working dir): npm install --global gulp-cli
-  
-          ##### JS minification
 
-          * Install js-uglify (npm install --save-dev gulp-uglify) (JS minification)
-          * Setup gulpfile.js (https://www.npmjs.com/package/gulp-uglify)
-          * Run gulp
+##### JS minification
 
-          ##### CSS minification
-          * Install css-lean (npm install gulp-clean-css --save-dev)
-          * Setup gulpfile.js (https://www.npmjs.com/package/gulp-clean-css)
-          * Run gulp
+* Install js-uglify (npm install --save-dev gulp-uglify) (JS minification)
+* Setup gulpfile.js (https://www.npmjs.com/package/gulp-uglify)
+* Run gulp
+
+##### CSS minification
+
+* Install css-lean (npm install gulp-clean-css --save-dev)
+* Setup gulpfile.js (https://www.npmjs.com/package/gulp-clean-css)
+* Run gulp
 
 
+## Optimization done on pizza.html
 
+#### Reduce load time of slider
+
+Two thing were done here:
+
+* Reduce number of DOM calls from 3 to 1. 
+
+This was done by making one initial request, storing it in a variable (randomPizzaContainerElement) and calling that instead of repeated DOM calls. This is a cheaper process to access than traversing through the DOM and will thus reduce load time.
+
+* Use requestAnimationFrame for the resizing function
+
+By calling putting the resize function inside requestAnimationFrame, this allows the browser to optimize the animation drawing job. 
+
+As a result of these two methods, the animation load time was reduced from ~175 ms to less than 1 ms.
 
 
 Web-resources used summary:
