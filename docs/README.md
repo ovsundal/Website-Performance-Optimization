@@ -87,6 +87,14 @@ By calling putting the resize function inside requestAnimationFrame, this allows
 
 As a result of these two methods, the animation load time was reduced from ~175 ms to less than 1 ms.
 
+#### Increase scroll-rate of pizza.html
+
+One thing were done here:
+
+* Move static (non-changing) DOM calls outside of the loop in main.js (line 520)
+
+This was enough to reach 60 fps when scrolling.
+
 
 Web-resources used summary:
 
