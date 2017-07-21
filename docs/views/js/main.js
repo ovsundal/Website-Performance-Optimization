@@ -449,14 +449,29 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
+
+    var dx = -1;
+    var newwidth = -1;
+    var randomPizzaContainerElement;
+
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+
+        randomPizzaContainerElement = document.querySelectorAll(".randomPizzaContainer")[i];
+
+      if(dx === -1) {
+          dx = determineDx(randomPizzaContainerElement, size);
+      }
+      if(newwidth === -1) {
+          newwidth = (randomPizzaContainerElement.offsetWidth + dx) + 'px';
+      }
+      randomPizzaContainerElement.style.width = newwidth;
     }
   }
 
-  changePizzaSizes(size);
+  window.requestAnimationFrame(function() {
+      changePizzaSizes(size);
+  });
+
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
