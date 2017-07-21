@@ -453,7 +453,7 @@ var resizePizzas = function(size) {
     //Move all DOM calls outside the loop and only call them once
     var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
     var dx = determineDx(randomPizzaContainer[0], size);
-    var newwidth = (randomPizzaContainer[0].offsetWidth + dx) + 'px'
+    var newwidth = (randomPizzaContainer[0].offsetWidth + dx) + 'px';
 
     for (var i = 0; i < randomPizzaContainer.length; i++) {
 
@@ -515,12 +515,12 @@ function updatePositions() {
   var phase = [];
 
   //calculate the 5 phases
-  for(var i = 0; i < 5; i++) {
+  for(let i = 0; i < 5; i++) {
       phase.push(Math.sin(topScroll + (i % 5)));
   }
 
   //shift the pizzas while scrolling
-  for (var i = 0; i < items.length; i++) {
+  for (let i = 0; i < items.length; i++) {
     items[i].style.left = items[i].basicLeft + 100 * phase[i%5] + 'px';
   }
 
