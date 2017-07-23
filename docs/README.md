@@ -1,5 +1,9 @@
 # Website Performance Optimization portfolio project
 
+TODO: -Run gulp and minify all files
+-Get PageSpeed of pizza.html
+-Fix all from reviewer https://review.udacity.com/#!/reviews/623681
+
 What is this project about? 
 
 A poorly optimized webpage was forked. The goal of this project is to optimize two pages, index.html and pizza.html and achieve a high score in Google pagespeed (https://developers.google.com/speed/pagespeed/insights/). In addition, pizza.html needs some code optimization to run animations at 60 fps. Only optimization was done in this project - content was not changed.
