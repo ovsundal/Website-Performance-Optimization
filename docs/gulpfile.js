@@ -14,10 +14,7 @@ const imageminGiflossy = require('imagemin-giflossy');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 
 
-gulp.task('default', function() {
-    // place code for your default task here
-
-});
+gulp.task('default', ['js-min', 'css-min', 'image-min']);
 
 gulp.task('watch', function() {
     // gulp.watch('files-to-watch', ['tasks', 'to', 'run']);
@@ -27,7 +24,7 @@ gulp.task('watch', function() {
 });
 
 //scripts minification/concat multi src/dist
-gulp.task('scripts', function() {
+gulp.task('js-min', function() {
     var mainJsScripts = gulp.src('../src/js/*.js')
         .pipe(jshint())
         .pipe(gulp.dest('./js/'))
@@ -45,7 +42,7 @@ gulp.task('scripts', function() {
     return merge(mainJsScripts, pizzaJsScripts);
 });
 //CSS minification - multi src/dist folders
-gulp.task('styles', function() {
+gulp.task('css-min', function() {
     var mainCss = gulp.src('../src/css/*.css')
         .pipe(gulp.dest('./css/'))
         .pipe(rename({ suffix: '.min' }))
@@ -62,51 +59,8 @@ gulp.task('styles', function() {
     return merge(mainCss, pizzaCss);
 });
 
-// lossy image compression, single src/dist folder
-
-gulp.task('imagemin', function() {
-    return gulp.src(['../src/img/*.{gif,png,jpg}'])
-        .pipe(imagemin([
-            //png
-            imageminPngquant({
-                speed: 1,
-                quality: 98 //lossy settings
-            }),
-            imageminZopfli({
-                more: true
-            }),
-            //gif
-            // imagemin.gifsicle({
-            //     interlaced: true,
-            //     optimizationLevel: 3
-            // }),
-            //gif very light lossy, use only one of gifsicle or Giflossy
-            imageminGiflossy({
-                optimizationLevel: 3,
-                optimize: 3, //keep-empty: Preserve empty transparent frames
-                lossy: 2
-            }),
-            //svg
-            imagemin.svgo({
-                plugins: [{
-                    removeViewBox: false
-                }]
-            }),
-            //jpg lossless
-            imagemin.jpegtran({
-                progressive: true
-            }),
-            //jpg very light lossy, use vs jpegtran
-            imageminMozjpeg({
-                quality: 90
-            })
-        ]))
-        .pipe(gulp.dest('./img/'));
-});
-
 // lossy image compression, multi src/dist folder
-
-gulp.task('imagemin', function() {
+gulp.task('image-min', function() {
     var mainPics = gulp.src(['../src/img/*.{gif,png,jpg}'])
         .pipe(imagemin([
             //png
