@@ -515,12 +515,12 @@ function updatePositions() {
   var phase = [];
 
   //calculate the 5 phases
-  for(let i = 0; i < 5; i++) {
+  for(var i = 0; i < 5; i++) {
       phase.push(Math.sin(topScroll + (i % 5)));
   }
 
   //shift the pizzas while scrolling
-  for (let i = 0; i < items.length; i++) {
+  for (var i = 0; i < items.length; i++) {
     items[i].style.left = items[i].basicLeft + 100 * phase[i%5] + 'px';
   }
 
