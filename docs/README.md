@@ -1,14 +1,17 @@
 # Website Performance Optimization portfolio project
 
-TODO: -Run gulp and minify all files
--Get PageSpeed of pizza.html
--Fix all from reviewer https://review.udacity.com/#!/reviews/623681
+This project is about improving a pre-built poorly optimized website using different optimization strategies.
+Two parts of the website was the target for this project, index.html and pizza.html. Very little code was written, so most of this project can be summarized in this README file.
 
-What is this project about? 
+To view the **unoptimized** site, [click here](https://github.com/ovsundal/Website-Performance-Optimization/tree/master/src) 
+and open index.html in any web-browser. 
 
-A poorly optimized webpage was forked. The goal of this project is to optimize two pages, index.html and pizza.html and achieve a high score in Google pagespeed (https://developers.google.com/speed/pagespeed/insights/). In addition, pizza.html needs some code optimization to run animations at 60 fps. Only optimization was done in this project - content was not changed.
+To view the **optimized** site, [click here](https://ovsundal.github.io/Website-Performance-Optimization/)
 
-More info about the project can be found here https://classroom.udacity.com/nanodegrees/nd001/parts/e87c34bf-a9c0-415f-b007-c2c2d7eead73/modules/273584856175461/lessons/b6026387-b47c-464f-954f-2f807979a066/concepts/26045387480923. For more detailed project requirements, see https://review.udacity.com/#!/rubrics/16/view
+
+
+To quantify optimization, [google pagespeed](https://developers.google.com/speed/pagespeed/) was used. Following score 
+was obtained before and after optimization:
 
 SCORE BEFORE OPTIMIZATION:  
 index.html: 27 (mobile), 29 (desktop)  
@@ -16,27 +19,28 @@ pizza.html: 36 (mobile), 30 (desktop)
 
 SCORE AFTER OPTIMIZATION:  
 index.html: 92 (mobile), 94 (desktop)  
-pizza.html: FILL ME           
-          
-What follows are instructions on how the optimization was done. This project was part of the Udacity Front-End Nanodegree program. 
+pizza.html: 88 (mobile), 87 (desktop)        
+   
+The remainer of this README file are instructions on how the optimization was done. 
 
+This project was part of the [Udacity Front-End Nanodegree program.](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001)
+   
 ## Optimization done on index.html
 
-#### Javascript
+#### Javascript (script downloads)
 
-* Change font download from stylesheet CDN to JS Async download using Google web-font-loader        (https://developers.google.com/fonts/docs/webfont_loader)
-
+* Change the way page font is downloaded. Instead of downloading a css stylesheet, use [Google web-font-loader](https://developers.google.com/fonts/docs/webfont_loader) (async js file)
 * Change Google analytics script to async download 
 
-How does this help? Scripts downloaded asynchronously allows the parser to continue.
+How does this help? Scripts downloaded asynchronously allows the DOM rendering to continue.
 Can only be used on scripts that does not impact the render tree.
   
 #### CSS
 
-* Append "media="print"" to print.css download header.
+* Add "media="print" to print.css download header.
 
-How does this help? CSS is by default render blocking. This css file only affects print layout, and is therefore in
-practice not render blocking. Adding syntax "media="print"" omits the render blocking.
+How does this help? CSS is by default render blocking. This css file only affects print layout, and is therefore *de facto* 
+not render blocking. Adding syntax "media="print"" omits the render blocking.
   
 * Minify and inline critical CSS in HTML header and move link reference to style.css to bottom of HTML page. 
 
