@@ -1,14 +1,12 @@
 # Website Performance Optimization portfolio project
 
 This project is about improving a pre-built poorly optimized website using different optimization strategies.
-Two parts of the website was the target for this project, index.html and pizza.html. Very little code was written, so most of this project can be summarized in this README file.
+Two parts of the website was the target for this project, index.html and pizza.html. Very little code was written, so most of this project can be summarized in this README file. The unoptimized version can be found in src/ folder, while the optimized website is in docs/.
 
 To view the **unoptimized** site, [click here](https://github.com/ovsundal/Website-Performance-Optimization/tree/master/src) 
 and open index.html in any web-browser. 
 
 To view the **optimized** site, [click here](https://ovsundal.github.io/Website-Performance-Optimization/)
-
-
 
 To quantify optimization, [google pagespeed](https://developers.google.com/speed/pagespeed/) was used. Following score 
 was obtained before and after optimization:
@@ -109,6 +107,3 @@ Web-resources used summary:
 Google pagespeed: https://developers.google.com/speed/pagespeed/  
 Base-64 encoding of images: https://www.base64-image.de/  
 Critical CSS extractor: https://jonassebastianohlsson.com/criticalpathcssgenerator/  
-
-
-
