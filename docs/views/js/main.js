@@ -547,8 +547,10 @@ document.addEventListener('DOMContentLoaded', function() {
   //calculated based on adjusting denominator until just enough pizzas are generated
   var numberOfPizzasToGenerate = intViewportHeight / 30;
 
+  var elem;
+
   for (var i = 0; i < numberOfPizzasToGenerate; i++) {
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
