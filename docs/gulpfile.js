@@ -16,13 +16,6 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 
 gulp.task('default', ['js-min', 'css-min', 'image-min']);
 
-gulp.task('watch', function() {
-    // gulp.watch('files-to-watch', ['tasks', 'to', 'run']);
-    // gulp.watch('app/scss/**/*.scss', ['sass']);
-    gulp.watch('../src/js/*.js', ['compress-js']);
-
-});
-
 //scripts minification/concat multi src/dist
 gulp.task('js-min', function() {
     var mainJsScripts = gulp.src('../src/js/*.js')
